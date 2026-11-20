@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic Qualiopi 2026 : êtes-vous à jour du nouveau référentiel ?</title>
+<meta name="description" content="Diagnostic gratuit en 3 minutes pour les organismes de formation déjà certifiés : ce que le référentiel modifié en 2026 vous demande d'ajouter, avec les textes officiels.">
+<style>
+:root {
+  --fond: #f6f4ef; --carte: #ffffff; --texte: #1d2430; --doux: #5b6472;
+  --trait: #dcd8ce; --accent: #1f5f4a; --accent-texte: #ffffff;
+  --alerte: #9a3412; --alerte-fond: #fdf0e6; --ok: #1f5f4a; --ok-fond: #e8f3ee;
+  --attention: #7a5b00; --attention-fond: #fbf3d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #14181d; --carte: #1c2229; --texte: #e8eaed; --doux: #a3acb8;
+    --trait: #323a44; --accent: #6fcfae; --accent-texte: #0f1a16;
+    --alerte: #ffb48a; --alerte-fond: #3a2217; --ok: #8fdcc0; --ok-fond: #17302a;
+    --attention: #f1d27a; --attention-fond: #3a3115;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--fond); color: var(--texte);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.page { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+header.site { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.marque { font-weight: 700; letter-spacing: -0.01em; }
+.etape { color: var(--doux); font-size: 15px; }
+h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; }
+h2 { font-size: 24px; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.01em; }
+h3 { font-size: 18px; line-height: 1.35; margin: 0 0 8px; }
+p { margin: 0 0 14px; }
+.chapo { font-size: 19px; color: var(--doux); }
+.carte { background: var(--carte); border: 1px solid var(--trait); border-radius: 12px; padding: 20px; margin: 0 0 16px; }
+.liste-simple { margin: 0 0 16px; padding-left: 20px; }
+.liste-simple li { margin-bottom: 6px; }
+button, .bouton {
+  font: inherit; font-weight: 600; cursor: pointer; border-radius: 10px;
+  padding: 12px 20px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--accent-texte); text-decoration: none; display: inline-block;
+}
+button.secondaire { background: transparent; color: var(--accent); }
+button:focus-visible, .bouton:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+legend { font-weight: 600; padding: 0; margin-bottom: 10px; }
+.choix { display: flex; gap: 8px; flex-wrap: wrap; }
+.choix label {
+  border: 1px solid var(--trait); border-radius: 999px; padding: 8px 16px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px; background: var(--fond);
+}
+.choix input { accent-color: var(--accent); margin: 0; }
+.choix label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.repere { font-size: 14px; color: var(--doux); margin-bottom: 6px; }
+.erreur { color: var(--alerte); font-weight: 600; margin-top: 12px; }
+.bandeau { border-radius: 12px; padding: 14px 18px; margin: 0 0 16px; background: var(--attention-fond); color: var(--attention); }
+.bilan { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 0 0 20px; }
+.bilan div { background: var(--carte); border: 1px solid var(--trait); border-radius: 12px; padding: 14px 16px; }
+.bilan strong { display: block; font-size: 30px; line-height: 1.1; }
+.bilan span { color: var(--doux); font-size: 15px; }
+.etiquette { display: inline-block; font-size: 13px; font-weight: 600; border-radius: 999px; padding: 2px 10px; margin: 0 6px 8px 0; }
+.etiquette.majeure { background: var(--alerte-fond); color: var(--alerte); }
+.etiquette.graduee { background: var(--attention-fond); color: var(--attention); }
+.etiquette.conforme { background: var(--ok-fond); color: var(--ok); }
+.ecart dt { font-weight: 600; margin-top: 10px; font-size: 15px; color: var(--doux); }
+.ecart dd { margin: 2px 0 0; }
+.source { font-size: 14px; color: var(--doux); margin-top: 10px; }
+a { color: var(--accent); }
+.champ { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.champ input[type="email"] {
+  font: inherit; flex: 1 1 240px; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--trait); background: var(--fond); color: var(--texte);
+}
+.petit { font-size: 14px; color: var(--doux); }
+.confirmation { color: var(--ok); font-weight: 600; margin-top: 12px; }
+footer.site { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--trait); font-size: 14px; color: var(--doux); }
+footer.site p { margin-bottom: 8px; }
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .actions, .offre, .envoi, header.site .etape { display: none !important; }
+  .carte { break-inside: avoid; border-color: #999; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site">
+    <span class="marque">Diagnostic Qualiopi 2026</span>
+    <span class="etape" id="etape" aria-live="polite"></span>
+  </header>
+
+  <main id="app">
+    <noscript><p>Ce diagnostic a besoin de JavaScript pour fonctionner.</p></noscript>
+  </main>
+
+  <footer class="site">
+    <p>Outil indépendant, sans lien avec le ministère du Travail ni avec un organisme certificateur. Il porte sur les seules modifications apportées au référentiel en 2026 et ne remplace ni un audit ni l'avis de votre certificateur.</p>
+    <p>Textes utilisés : <span id="sources"></span>.</p>
+    <p id="mentions"></p>
+  </footer>
+</div>
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
