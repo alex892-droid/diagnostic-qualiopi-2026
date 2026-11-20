@@ -265,7 +265,7 @@
       }
       const resume = ecarts.map(function (c) { return "Indicateur " + c.indicateur + " : " + c.question; });
       if (CONFIG.endpoint) {
-        signaler("adresse_laissee", { email: adresse, ecarts: ecarts.map(function (c) { return c.id; }) });
+        signaler("adresse_laissee", { email: adresse, ecarts: ecarts.map(function (c) { return c.id; }), resume: resume, page: location.origin + location.pathname });
         retour.className = "confirmation";
         retour.textContent = "C'est noté. Vous recevrez votre résultat à cette adresse.";
         formulaire.remove();
